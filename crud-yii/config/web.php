@@ -42,14 +42,15 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
+        
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'hello/<nome:\w+/><sobrenome:\w+>' => 'hello/oi'
             ],
         ],
-        */
+        
     ],
     'params' => $params,
 ];
