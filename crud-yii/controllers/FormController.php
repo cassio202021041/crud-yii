@@ -2,16 +2,16 @@
 namespace app\controllers;
 
 use app\models\CadastroForm;
-use yii\base\Controller;
+use yii\web\Controller;
 
-class FormController extends \yii\web\Controller
+class FormController extends Controller
 {
     public function actionCadastro()
     {
         $model = new CadastroForm;
 
-        if($model->load(yii::$app->request->post()) && $model->validate()){
-
+        if ($model->load(\Yii::$app->request->post()) && $model->validate()) {
+            // Adicione aqui a lógica para salvar os dados ou realizar outras ações
         }
 
         return $this->render('cadastro', [

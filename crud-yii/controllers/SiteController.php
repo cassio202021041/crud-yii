@@ -125,4 +125,40 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+    public function actionTeste()
+    {
+        $request = Yii::$app->request;
+        
+        $post = $request->post();
+        $post_campo =  $request->post('campo');
+        $get = $request->get();
+        
+        
+        return'Teste Action';
+    }
+    public function actionCriar()
+    {
+        $session = Yii::$app->session;
+        $session->open();
+        var_dump($session->isActive);
+        $session->setflash('msg', 'Sucesso ao concluir');
+
+        $cookiee = yii::$app->response->cookies;
+        $cookiee->add(new \yii\web\Cookie([
+            'name' => 'MeuCookie',
+            'value' => 'teste123',
+            'expire' => strtotime('+5 seconds')
+        ]));
+    } 
+    public function actionLer(){
+
+    $session = Yii::$app->session;
+    $cookies = yii::$app->request->cookies;
+
+    echo $cookies->get('MeuCookie');
+    $session->open();
+    echo $session->get('campo');
+    echo $session->getFlash('msg');
+    }
 }
+   
